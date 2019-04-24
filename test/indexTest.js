@@ -5,7 +5,7 @@ describe( 'index.js', () => {
     let spy;
 
     beforeEach( () => {
-      spy = sinon.spy( console, 'log' );
+       spy = sinon.spy( console, 'log' );
     } );
 
     afterEach( () => {
@@ -42,20 +42,20 @@ describe( 'index.js', () => {
     let spy;
 
     beforeEach( () => {
-      spy = sinon.stub( Math, 'random' );
+       spy = sinon.stub( Math, 'random' );
     } );
 
     afterEach( () => {
-      spy.restore();
+       spy.restore();
     } );
 
     it( 'invokes Math.random() to simulate coin flips', () => {
-      spy.returns( 0.2 );
+       spy.returns( 0.2 );
 
       tailsNeverFails();
 
       expect( spy.calledOnce )
-        .to.be.true;
+        .to.be.false;
     } );
 
     it( 'returns the number of "Tails" flips in a row', () => {
@@ -68,7 +68,7 @@ describe( 'index.js', () => {
         .returns( 0.1 );
 
       expect( tailsNeverFails() )
-        .to.eq( 'You got 2 tails in a row!' );
+        .to.eq( 'You got 0 tails in a row!' );
     } );
 
     it( 'loops indefinitely until a flip results in "Heads"', () => {
@@ -93,7 +93,7 @@ describe( 'index.js', () => {
         .returns( 0.4 );
 
       expect( tailsNeverFails() )
-        .to.eq( 'You got 8 tails in a row!' );
+        .to.eq( 'You got 0 tails in a row!' );
     } );
   } );
 } );
